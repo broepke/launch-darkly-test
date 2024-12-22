@@ -23,7 +23,7 @@ BASE_HTML = """
     </head>
     <body>
         <h1>Welcome, {{ user_name }}</h1>
-        <p>User Key: {{ user_key }}</p>
+        <h2>User Key: {{ user_key }}</h2>
         {% if new_feature %}
             <p><b>🎉 New Feature is Enabled for You! 🎉</b></p>
         {% else %}
@@ -37,7 +37,7 @@ BASE_HTML = """
 @app.route("/")
 def index():
     # Get user context from query parameters
-    user_key = request.args.get("user_key", "user123")  # Default to "user123"
+    user_key = request.args.get("user_key", "532169c2-a050-4210-841c-9ecc95a22cc8")  # Default to "user123"
     user_name = request.args.get("user_name", "Jane Doe")  # Default to "Jane Doe"
 
     # Build the user context
