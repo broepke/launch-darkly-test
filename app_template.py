@@ -20,8 +20,7 @@ FEATURE_FLAG_KEY = "new-homepage"
 def index():
     # Get the user's context. This could be based on session data,
     # user ID, or other identifying information.
-
-    user_key = "user123"
+    user_key = "532169c2-a050-4210-841c-9ecc95a22cc8"
     user_name = "Jane Doe"
 
     context = Context.builder(user_key).kind("user").name(user_name).build()
