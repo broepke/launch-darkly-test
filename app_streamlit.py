@@ -1,12 +1,10 @@
 import streamlit as st
-import os
 import ldclient
 from ldclient import Context
 from ldclient.config import Config
 
-
-# Set sdk_key to your LaunchDarkly SDK key.
-sdk_key = os.getenv("LAUNCHDARKLY_SDK_KEY")
+# Get the LaunchDarkly SDK key from Streamlit Secrets
+sdk_key = st.secrets["other"]["launchdarkly_sdk_key"]
 ldclient.set_config(Config(sdk_key))
 
 # Define a feature flag key
