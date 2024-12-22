@@ -51,7 +51,7 @@ else:
     st.write("📠 This is the old homepage 📠")
 
 left, right = st.columns(2)
-if left.button("Left button", icon="😁"):
+if left.button("Left button", icon="😁", key="left-button", type="secondary"):
     left.write("You clicked the left button!")
-if right.button("Right button", icon="😢"):
+if right.button("Right button", icon="😢", key="right-button", type="primary"):
     right.write("You clicked the right button!")
