@@ -1,8 +1,8 @@
+import random
 import streamlit as st
 import ldclient
 from ldclient import Context
 from ldclient.config import Config
-import random
 
 # Get the LaunchDarkly SDK key from Streamlit Secrets
 sdk_key = st.secrets["other"]["launchdarkly_sdk_key"]
@@ -37,28 +37,21 @@ context = builder.build()
 show_new_homepage = ldclient.get().variation(FEATURE_FLAG_KEY, context, False)
 
 st.title("Hello, Streamlit!")
+st.write("**User Key:**", user_key)
+st.write("**User Name:**", user_name)
+st.write("**User Email:**", user_email)
+st.write("**User Geneder:**", user_gender)
 
 if show_new_homepage:
     # Render the new homepage
-    st.write("**User Key:**", user_key)
-    st.write("**User Name:**", user_name)
-    st.write("**User Email:**", user_email)
-    st.write("**User Geneder:**", user_gender)
     st.write("🆕 This is the new homepage 🆕")
-    left, right = st.columns(2)
-    if left.button("Left button", icon="😁"):
-        left.write("You clicked the left button!")
-    if right.button("Right button", icon="😢"):
-        right.write("You clicked the right button!")
+    
 else:
     # Render the old homepage
-    st.write("**User Key:**", user_key)
-    st.write("**User Name:**", user_name)
-    st.write("**User Email:**", user_email)
-    st.write("**User Geneder:**", user_gender)
     st.write("📠 This is the old homepage 📠")
-    left, right = st.columns(2)
-    if left.button("Left button", icon="😁"):
-        left.write("You clicked the left button!")
-    if right.button("Right button", icon="😢"):
-        right.write("You clicked the right button!")
+
+left, right = st.columns(2)
+if left.button("Left button", icon="😁"):
+    left.write("You clicked the left button!")
+if right.button("Right button", icon="😢"):
+    right.write("You clicked the right button!")
