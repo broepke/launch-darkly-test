@@ -31,3 +31,12 @@ credentials:
       last_name: Anderson
       logged_in: false
       password: $2b$12$6B/QYpyiHmh.GhSPORFfHeKXduO7nSSb5FWxqlN4I6Ccl.rR8jFBO
+    eric:
+      email: eric@example.com
+      failed_login_attempts: 0
+      first_name: Eric
+      gender: Male
+      id: 9333ad76-153f-409b-aa58-d66dacc74f5c
+      last_name: Johnson
+      logged_in: true
+      password: $2b$12$BtsYDznRSlUulACwdWeP2uEJCVi8nE1kVtRwfpUr86btMwwnpi4zC

@@ -8,8 +8,17 @@ from ldclient import Context
 from ldclient.config import Config
 
 st.title("Hello, Streamlit!")
-st.write("""Use of the the two users below to test the feature flag.  User 1 will see the "new" application and User 2 will see the "old" application.  In this case, LaunchDarkly's (LD) Context for the two users contains a Gender attribute.  LD is currently set up to have a Segment for each.""")
-st.code("""User 1: u: 'brian' p: 'brian' \nUser 2: u: 'chris' p: 'chris' \nUser 3: u: 'andrew' p: 'andrew'""")
+st.write(
+    """Use of the the two users below to test the feature flag.  User 1 will see the "new" application and User 2 will see the "old" application.  In this case, LaunchDarkly's (LD) Context for the two users contains a Gender attribute.  LD is currently set up to have a Segment for each."""
+)
+st.code(
+    """
+User 1: u: 'brian' p: 'brian'
+User 2: u: 'chris' p: 'chris'
+User 3: u: 'andrew' p: 'andrew'
+User 4: u: 'eric' p: 'eric'
+"""
+)
 
 # Get the LaunchDarkly SDK key from Streamlit Secrets
 sdk_key = st.secrets["other"]["launchdarkly_sdk_key"]
@@ -75,13 +84,16 @@ if st.session_state["authentication_status"]:
         if st.button(
             "New CTA Button", icon="😁", key="cta-new-button", type="secondary"
         ):
-            ldclient.get().track(event_name="cta-new-button", metric_value=1, context=context)
+            ldclient.get().track(
+                event_name="cta-new-button", metric_value=1, context=context
+            )
             st.write("You clicked the new CTA button!")
-            
 
     else:
         if st.button("Old CTA Button", icon="😢", key="cta-old-button", type="primary"):
-            ldclient.get().track(event_name="cta-old-button", metric_value=1, context=context)
+            ldclient.get().track(
+                event_name="cta-old-button", metric_value=1, context=context
+            )
             st.write("You clicked the old CTA button!")
 
 
@@ -94,5 +106,5 @@ elif st.session_state["authentication_status"] is None:
 with st.expander("Session State for Debugging", icon="💾"):
     st.session_state
 
-with open('config.yaml', 'w') as file:
+with open("config.yaml", "w") as file:
     yaml.dump(config, file, default_flow_style=False)
