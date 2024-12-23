@@ -8,7 +8,8 @@ from ldclient import Context
 from ldclient.config import Config
 
 st.title("Hello, Streamlit!")
-st.code("Username: brian \ chris \nPassword: brian \ chris")
+st.write("""Use of the the two users below to test the feature flag.  User 1 will see the "new" application and User 2 will see the "old" application.  In this case, LaunchDarkly's (LD) Context for the two users contains a Gender attribute.  LD is currently set up to have a Segment for each.""")
+st.code("""User 1: 'brian' \ 'brian' \nUser 2: 'chris' \ 'chris'""")
 
 # Get the LaunchDarkly SDK key from Streamlit Secrets
 sdk_key = st.secrets["other"]["launchdarkly_sdk_key"]
@@ -41,7 +42,7 @@ except LoginError as e:
     st.error(e)
 
 if st.session_state["authentication_status"]:
-    authenticator.logout(location="sidebar", key="launch-darkly-test-app-home")
+    # authenticator.logout(location="main", key="launch-darkly-test-app-home")
 
     # Define a feature flag key
     FEATURE_FLAG_KEY = "new-homepage"
@@ -68,24 +69,17 @@ if st.session_state["authentication_status"]:
     # Evaluate the feature flag for the user
     show_new_homepage = ldclient.get().variation(FEATURE_FLAG_KEY, context, False)
 
-    st.write("**User Key:**", user_key)
     st.write("**User Name:**", user_name)
-    st.write("**User Email:**", user_email)
-    st.write("**User Geneder:**", user_gender)
 
     if show_new_homepage:
-        # Render the new homepage
-        st.write("🆕 This is the new homepage 🆕")
+        if st.button(
+            "New CTA Button", icon="😁", key="new-cta-button", type="secondary"
+        ):
+            st.write("You clicked the new CTA button!")
 
     else:
-        # Render the old homepage
-        st.write("📠 This is the old homepage 📠")
-
-    left, right = st.columns(2)
-    if left.button("Left button", icon="😁", key="left-button", type="secondary"):
-        left.write("You clicked the left button!")
-    if right.button("Right button", icon="😢", key="right-button", type="primary"):
-        right.write("You clicked the right button!")
+        if st.button("Old CTA Button", icon="😢", key="old-cta-button", type="primary"):
+            st.write("You clicked the old CTA button!")
 
 
 elif st.session_state["authentication_status"] is False:

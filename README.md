@@ -6,7 +6,7 @@ This project demonstrates the implementation of LaunchDarkly feature flags in bo
 
 - User authentication using Streamlit Authenticator
 - LaunchDarkly feature flag integration
-- Toggle between old and new homepage versions
+- Render different widgets based on feature flag evaluation
 - User context-based feature flag evaluation
 - Interactive UI elements with Streamlit
 - Example implementations in both pure Python and Streamlit
@@ -29,7 +29,7 @@ This project demonstrates the implementation of LaunchDarkly feature flags in bo
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/broepke/launch-darkly-test.git
 cd launch-darkly-test
 ```
 
