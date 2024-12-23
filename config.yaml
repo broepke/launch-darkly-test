@@ -11,7 +11,7 @@ credentials:
       gender: Male
       id: 664c0b25-cf50-44c9-bf80-4dcf7fe789b9
       last_name: Roepke
-      logged_in: true
+      logged_in: false
       password: $2b$12$FuuMLiF/SRtknvoOPPQLVe0uqo/dirugnpOKkyPmGmlB.hWO17oKK
       roles:
       - admin
@@ -21,7 +21,7 @@ credentials:
       email: chris@example.com
       failed_login_attempts: 0
       first_name: Chris
-      gender: Felmale
+      gender: Female
       id: 9d890182-87b1-412b-8138-eee1aea8b691
       last_name: Anderson
       logged_in: false

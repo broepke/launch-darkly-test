@@ -50,8 +50,12 @@ if st.session_state["authentication_status"]:
     app_username = st.session_state.username
     user_email = st.session_state.email
     user_name = st.session_state.name
-    user_key = st.session_state["config"]["credentials"]["usernames"][app_username]["id"]
-    user_gender = st.session_state["config"]["credentials"]["usernames"][app_username]["gender"]
+    user_key = st.session_state["config"]["credentials"]["usernames"][app_username][
+        "id"
+    ]
+    user_gender = st.session_state["config"]["credentials"]["usernames"][app_username][
+        "gender"
+    ]
 
     # Build the user context for LaunchDarkly
     builder = Context.builder(user_key)
@@ -63,7 +67,7 @@ if st.session_state["authentication_status"]:
 
     # Evaluate the feature flag for the user
     show_new_homepage = ldclient.get().variation(FEATURE_FLAG_KEY, context, False)
-    
+
     st.write("**User Key:**", user_key)
     st.write("**User Name:**", user_name)
     st.write("**User Email:**", user_email)
@@ -90,9 +94,8 @@ elif st.session_state["authentication_status"] is None:
     st.warning("Please enter your username and password")
 
 
-
 with st.expander("Session State for Debugging", icon="💾"):
     st.session_state
-    
+
 # with open('config.yaml', 'w') as file:
 #     yaml.dump(config, file, default_flow_style=False)
