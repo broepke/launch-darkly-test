@@ -9,7 +9,7 @@ from ldclient.config import Config
 
 st.title("Hello, Streamlit!")
 st.write("""Use of the the two users below to test the feature flag.  User 1 will see the "new" application and User 2 will see the "old" application.  In this case, LaunchDarkly's (LD) Context for the two users contains a Gender attribute.  LD is currently set up to have a Segment for each.""")
-st.code("""User 1: 'brian' \ 'brian' \nUser 2: 'chris' \ 'chris'""")
+st.code("""User 1: u: 'brian' p: 'brian' \nUser 2: u: 'chris' p: 'chris'""")
 
 # Get the LaunchDarkly SDK key from Streamlit Secrets
 sdk_key = st.secrets["other"]["launchdarkly_sdk_key"]
