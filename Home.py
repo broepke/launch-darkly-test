@@ -75,10 +75,13 @@ if st.session_state["authentication_status"]:
         if st.button(
             "New CTA Button", icon="😁", key="new-cta-button", type="secondary"
         ):
+            ldclient.get().track(event_name="cta-new-button", metric_value=1, context=context)
             st.write("You clicked the new CTA button!")
+            
 
     else:
         if st.button("Old CTA Button", icon="😢", key="old-cta-button", type="primary"):
+            ldclient.get().track(event_name="cta-new-button", metric_value=1, context=context)
             st.write("You clicked the old CTA button!")
 
 
