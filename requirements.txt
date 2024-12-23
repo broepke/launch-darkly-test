@@ -1,3 +1,4 @@
 flask
 streamlit
-launchdarkly-server-sdk==9.8.0
+streamlit-authenticator
+launchdarkly-server-sdk
