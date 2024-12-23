@@ -40,3 +40,12 @@ credentials:
       last_name: Johnson
       logged_in: true
       password: $2b$12$BtsYDznRSlUulACwdWeP2uEJCVi8nE1kVtRwfpUr86btMwwnpi4zC
+    sally:
+      email: sally@example.com
+      failed_login_attempts: 0
+      first_name: Sally
+      gender: Female
+      id: 9333ad76-153f-409b-aa58-d66dacc74f5c
+      last_name: Long
+      logged_in: true
+      password: $2b$12$mv8/DrRS/253KnR0dougxO.u4Gg5Nal41bLhtiGq43QEV5pFOMmcu
