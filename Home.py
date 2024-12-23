@@ -9,7 +9,7 @@ from ldclient.config import Config
 
 st.title("Hello, Streamlit!")
 st.write("""Use of the the two users below to test the feature flag.  User 1 will see the "new" application and User 2 will see the "old" application.  In this case, LaunchDarkly's (LD) Context for the two users contains a Gender attribute.  LD is currently set up to have a Segment for each.""")
-st.code("""User 1: u: 'brian' p: 'brian' \nUser 2: u: 'chris' p: 'chris'""")
+st.code("""User 1: u: 'brian' p: 'brian' \nUser 2: u: 'chris' p: 'chris' \nUser 3: u: 'andrew' p: 'andrew'""")
 
 # Get the LaunchDarkly SDK key from Streamlit Secrets
 sdk_key = st.secrets["other"]["launchdarkly_sdk_key"]
@@ -94,5 +94,5 @@ elif st.session_state["authentication_status"] is None:
 with st.expander("Session State for Debugging", icon="💾"):
     st.session_state
 
-# with open('config.yaml', 'w') as file:
-#     yaml.dump(config, file, default_flow_style=False)
+with open('config.yaml', 'w') as file:
+    yaml.dump(config, file, default_flow_style=False)
